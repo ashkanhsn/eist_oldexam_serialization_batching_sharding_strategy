@@ -76,7 +76,7 @@ public class LocalStorage implements Storage {
                 int gemId = localstore.read(tapeIdx, offset);
                 int size = localstore.read(tapeIdx, offset+1);
                 if (gemId == id){
-                    for (int i = 0; i <= size; i++){
+                    for (int i = 0; i < size; i++){
                         ints.add(localstore.read(tapeIdx, offset + i));
                     }
                     return ints;
