@@ -39,19 +39,20 @@ public class LocalStorage implements Storage {
     }
 
     public void writeSerializedDataToTape(ArrayList<Integer> intsToWrite){
-//        // TODO Q 1.2
-//        int tapeIdx = 0;
-//        int size = intsToWrite.size();
-//
-//        while (true){
-//            int currentIdx = localstore.getCurrentIndexTape(tapeIdx);
-//            int remainedSpace = TapeBasedStorage.maxTapeSize - currentIdx;
-//
-//            if (remainedSpace >= size){
-//                localstore.write(tapeIdx, intsToWrite, size);
-//            }
-//            tapeIdx++;
-//        }
+        // TODO Q 1.2
+        int tapeIdx = 0;
+        int size = intsToWrite.size();
+
+        while (true){
+            int currentIdx = localstore.getCurrentIndexTape(tapeIdx);
+            int remainedSpace = TapeBasedStorage.maxTapeSize - currentIdx;
+
+            if (remainedSpace >= size){
+                localstore.write(tapeIdx, intsToWrite, size);
+                return;
+            }
+            tapeIdx++;
+        }
     }
 
     @Override
