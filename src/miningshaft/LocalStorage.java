@@ -66,6 +66,10 @@ public class LocalStorage implements Storage {
         int tapeIdx = 0;
 
         while (true){
+//            int currentIdx = localstore.getCurrentIndexTape(tapeIdx);
+//            if (currentIdx == 0){
+//                return ints;
+//            }
             int offset = 0;
             while(offset < TapeBasedStorage.maxTapeSize){
                 int gemId = localstore.read(tapeIdx, offset);
@@ -76,7 +80,7 @@ public class LocalStorage implements Storage {
                     }
                     return ints;
                 }
-                offset++;
+                offset += size;
             }
             tapeIdx++;
         }
