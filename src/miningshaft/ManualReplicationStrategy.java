@@ -15,9 +15,11 @@ public class ManualReplicationStrategy implements ReplicationStrategy {
     @Override
     public void writeBatchToRemotes(HashMap<Integer, Gem> g, ArrayList<Replica> replicas) {
         // TODO Q 2.1
-        for (Replica r:replicas){
-            for (Integer id : g.keySet()) {
-                r.sendGem(id, g.get(id));
+        for (Integer id : g.keySet()) {
+            Gem gem = g.get(id);
+
+            for (Replica r : replicas) {
+                r.sendGem(id, gem);
             }
         }
     }
