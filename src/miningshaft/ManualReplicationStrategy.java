@@ -8,9 +8,7 @@ public class ManualReplicationStrategy implements ReplicationStrategy {
     public void writeToRemotes(Gem g, ArrayList<Replica> replicas) {
         // TODO Q 2.1
         for (Replica r : replicas){
-            if (!r.isBroken()){
                 r.sendGem(g.id, g);
-            }
         }
     }
 
@@ -18,9 +16,7 @@ public class ManualReplicationStrategy implements ReplicationStrategy {
     public void writeBatchToRemotes(HashMap<Integer, Gem> g, ArrayList<Replica> replicas) {
         // TODO Q 2.1
         for (Replica r:replicas){
-            if (!r.isBroken()){
                 r.sendBatch(g);
-            }
         }
     }
 }
