@@ -17,7 +17,6 @@ public class LocalStorage implements Storage {
         list.add(g.id);
         list.add(g.size);
         list.add(g.type);
-        list.add(g.provenance);
         list.addAll(g.modelPoints);
         return list;
     }
@@ -28,10 +27,9 @@ public class LocalStorage implements Storage {
         g.id = list.get(0);
         g.size = list.get(1);
         g.type = list.get(2);
-        g.provenance = list.get(3);
 
         g.modelPoints = new ArrayList<>();
-        for (int i=4 ; i < list.size(); i++){
+        for (int i=3 ; i < list.size(); i++){
             g.modelPoints.add(list.get(i));
         }
 
