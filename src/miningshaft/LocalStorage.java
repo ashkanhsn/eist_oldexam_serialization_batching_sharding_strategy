@@ -13,12 +13,28 @@ public class LocalStorage implements Storage {
     public ArrayList<Integer> serialize(Gem g){
         ArrayList<Integer> list = new ArrayList<>();
         // TODO Q 1.1
+
+        list.add(g.id);
+        list.add(g.size);
+        list.add(g.type);
+        list.add(g.provenance);
+        list.addAll(g.modelPoints);
         return list;
     }
 
     public Gem deserialize(ArrayList<Integer> list){
         Gem g = new Gem();
         // TODO Q 1.1
+        g.id = list.get(0);
+        g.size = list.get(1);
+        g.type = list.get(2);
+        g.provenance = list.get(3);
+
+        g.modelPoints = new ArrayList<>();
+        for (int i=4 ; i < list.size(); i++){
+            g.modelPoints.add(list.get(i));
+        }
+
         return g;
     }
 
