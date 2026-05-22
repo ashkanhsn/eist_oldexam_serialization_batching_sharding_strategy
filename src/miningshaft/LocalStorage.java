@@ -62,24 +62,25 @@ public class LocalStorage implements Storage {
 
     public ArrayList<Integer> readSerializedDataFromTape(int id){
         ArrayList<Integer> ints = new ArrayList<>();
-        // TODO Q 1.2
-        int tapeIdx = 0;
-
-        while (true){
-            int offset = 0;
-            while(offset < TapeBasedStorage.maxTapeSize){
-                int gemId = localstore.read(tapeIdx, offset);
-                int size = localstore.read(tapeIdx, offset+1);
-                if (gemId == id){
-                    for (int i = 0; i < size; i++){
-                        ints.add(localstore.read(tapeIdx, offset + i));
-                    }
-                    return ints;
-                }
-                offset++;
-            }
-            tapeIdx++;
-        }
+//        // TODO Q 1.2
+//        int tapeIdx = 0;
+//
+//        while (true){
+//            int offset = 0;
+//            while(offset < TapeBasedStorage.maxTapeSize){
+//                int gemId = localstore.read(tapeIdx, offset);
+//                int size = localstore.read(tapeIdx, offset+1);
+//                if (gemId == id){
+//                    for (int i = 0; i < size; i++){
+//                        ints.add(localstore.read(tapeIdx, offset + i));
+//                    }
+//                    return ints;
+//                }
+//                offset++;
+//            }
+//            tapeIdx++;
+//        }
+        return ints;
     }
 
     @Override
