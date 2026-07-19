@@ -8,7 +8,10 @@ public class ManualReplicationStrategy implements ReplicationStrategy {
     public void writeToRemotes(Gem g, ArrayList<Replica> replicas) {
         // TODO Q 2.1
         for (Replica r : replicas){
-                r.sendGem(g.id, g);
+                boolean success = r.sendGem(g.id, g);
+                if (!success){
+                    throw new IllegalArgumentException("gem is broken");
+                }
         }
     }
 
@@ -19,7 +22,10 @@ public class ManualReplicationStrategy implements ReplicationStrategy {
             Gem gem = g.get(id);
 
             for (Replica r : replicas) {
-                r.sendGem(id, gem);
+                boolean success = r.sendGem(id, gem);
+                if (!success){
+                    throw new IllegalArgumentException("gem is broken");
+                }
             }
         }
     }
